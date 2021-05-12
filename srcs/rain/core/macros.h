@@ -8,6 +8,5 @@
     #define RAIN_API
 #endif
 
-
-#define START_NAMESPACE(ns)     namespace ns {
-#define END_NAMESPACE()         }
+#define START_RAIN()    namespace rain {
+#define STOP_RAIN()     }

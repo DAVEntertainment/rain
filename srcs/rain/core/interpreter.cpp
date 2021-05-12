@@ -4,7 +4,7 @@
 
 using namespace std;
 
-START_NAMESPACE(rain)
+START_RAIN()
 
 Interpreter::Interpreter(){}
 
@@ -14,4 +14,4 @@ void Interpreter::Interpret(){
     cout << "joker" << endl;
 }
 
-END_NAMESPACE() 
+STOP_RAIN()

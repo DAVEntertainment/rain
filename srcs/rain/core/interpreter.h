@@ -1,6 +1,6 @@
 #include "rain/core/macros.h"
 
-START_NAMESPACE(rain)
+START_RAIN()
 
 class RAIN_API Interpreter {
 public:
@@ -9,4 +9,4 @@ public:
     void Interpret();
 };
 
-END_NAMESPACE()
+STOP_RAIN()
