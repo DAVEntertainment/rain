@@ -32,8 +32,10 @@
 *.app
 
 # Build Directories
-.build
-_build
-.dist
-_dist
+.build*
+_build*
+.dist*
+_dist*
+.install*
+_install*
 

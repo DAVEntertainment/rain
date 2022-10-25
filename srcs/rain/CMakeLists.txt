@@ -29,9 +29,19 @@ target_include_directories(rain
         ${CMAKE_CURRENT_LIST_DIR}/..
 )
 
+target_include_directories(rain SYSTEM INTERFACE
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/..>"
+    "$<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>"
+)
+
 target_compile_definitions(rain
     PRIVATE
         -DRAIN_EXPORT
+)
+
+set_target_properties(rain
+    PROPERTIES
+        PUBLIC_HEADER "${RAIN_HEADERS}"
 )
 
 install(
@@ -40,7 +50,7 @@ install(
     RUNTIME DESTINATION bin
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
-    PUBLIC_HEADER DESTINATION include
+    PUBLIC_HEADER DESTINATION include/rain
 )
 
 # install <TARGET>Targets*.cmake files
