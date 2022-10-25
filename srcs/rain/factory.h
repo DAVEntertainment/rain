@@ -1,14 +1,12 @@
 #pragma once
 #include "rain/misc/rain_macros.h"
+#include "./api_macro.h"
 
 START_RAIN();
 
-class Interpreter final
-{
+class RAIN_API Factory {
 public:
-    Interpreter();
-    ~Interpreter();
-    void Interpret();
+    void Call() {};
 };
 
 STOP_RAIN();

@@ -3,12 +3,11 @@
 
 START_RAIN();
 
-class Interpreter final
+class Console final
 {
 public:
-    Interpreter();
-    ~Interpreter();
-    void Interpret();
+    Console();
+    ~Console();
 };
 
 STOP_RAIN();
