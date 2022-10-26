@@ -8,5 +8,6 @@ int main(int nargs, char* args[])
 {
     Factory factory;
     factory.Call();
+    cout << "factory called" << endl;
     return 0;
 }
