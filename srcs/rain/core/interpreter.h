@@ -16,9 +16,8 @@
 
 START_RAIN();
 
-class Interpreter final
-{
-public:
+class Interpreter final {
+ public:
     Interpreter();
     ~Interpreter();
     void Interpret();

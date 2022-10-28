@@ -12,18 +12,16 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #include <iostream>
-#include "./interpreter.h"
-
-using namespace std;
+#include "rain/core/interpreter.h"
 
 START_RAIN();
 
-Interpreter::Interpreter(){}
+Interpreter::Interpreter() {}
 
-Interpreter::~Interpreter(){}
+Interpreter::~Interpreter() {}
 
-void Interpreter::Interpret(){
-    cout << "joker" << endl;
+void Interpreter::Interpret() {
+    ::std::cout << "joker" << ::std::endl;
 }
 
 STOP_RAIN();

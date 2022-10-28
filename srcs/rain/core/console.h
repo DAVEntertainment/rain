@@ -16,9 +16,8 @@
 
 START_RAIN();
 
-class Console final
-{
-public:
+class Console final {
+ public:
     Console();
     ~Console();
 };

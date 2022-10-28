@@ -14,13 +14,9 @@
 #include <iostream>
 #include "rain/rain.h"
 
-using namespace std;
-using namespace rain;
-
-int main(int nargs, char* args[])
-{
-    Factory factory;
+int main(int nargs, char* args[]) {
+    rain::Factory factory;
     factory.Call();
-    cout << "factory called" << endl;
+    std::cout << "factory called" << std::endl;
     return 0;
 }

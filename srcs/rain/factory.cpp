@@ -11,7 +11,7 @@
  * Change History:
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
-#include "./factory.h"
+#include "rain/factory.h"
 
 namespace rain {
 

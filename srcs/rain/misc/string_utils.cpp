@@ -11,4 +11,4 @@
  * Change History:
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
-
+#include "rain/misc/string_utils.h"

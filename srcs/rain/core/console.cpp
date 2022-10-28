@@ -12,13 +12,12 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #include <iostream>
-
-#include "./console.h"
+#include "rain/core/console.h"
 
 START_RAIN();
 
-Console::Console(){}
+Console::Console() {}
 
-Console::~Console(){}
+Console::~Console() {}
 
 STOP_RAIN();

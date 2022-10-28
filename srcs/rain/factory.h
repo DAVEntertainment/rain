@@ -12,11 +12,13 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #pragma once
-#include "./api_macro.h"
+#include "rain/api_macro.h"
 
 namespace rain {
-    class RAIN_API Factory {
-    public:
-        void Call() {};
-    };
-}
+
+class RAIN_API Factory {
+ public:
+    void Call() {}
+};
+
+}  // namespace rain
