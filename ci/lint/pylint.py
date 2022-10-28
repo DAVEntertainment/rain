@@ -1,3 +1,6 @@
+"""
+pylint entry
+"""
 from os.path import join as joinpath
 from os.path import abspath, dirname
 from sys import executable
@@ -16,6 +19,6 @@ py_files = glob_files(
 cmd = f"{executable} -m pylint {' '.join(py_files)}"
 print(cmd)
 
-proc = Popen(cmd)
-proc.communicate()
-print(f"return code {proc.returncode}")
+with Popen(cmd) as proc:
+    proc.communicate()
+    print(f"return code {proc.returncode}")
