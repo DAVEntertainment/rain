@@ -1,14 +1,18 @@
 # rain
 rain is a script language for ??? (not clear for now, let's just do it)
 
-# How to setup environment
-### python environment
-create virtual environment, e.g.
-```batch
-virtualenv .venv
-```
+# TODO
+### Phase 1
+- [ ] Hello World (Basic script execute, print)
+- [ ] Value type: str
+- [ ] Value types: int, float
+- [ ] Variable
+- [ ] Block
+- [ ] Flow control: if/else
+- [ ] Symbols: +/-/*//
+- [ ] Function definition: def
+- [ ] Class definition: class
 
-copy `ci/pyutils/<system>.pth ` to `.venv`'s `site-packages` dir, e.g.
-```batch
-copy ci\pyutils\win.pth .venv\Lib\site-packages\
-```
+### Phase 2
+- [ ] Step/Breakpoint
+- [ ] Debug
