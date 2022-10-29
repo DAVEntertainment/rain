@@ -2,8 +2,6 @@
 doxyfile utils
 """
 import re
-from os.path import join as joinpath
-from os.path import abspath, dirname
 
 def search_var(content, var_name):
     """
@@ -50,51 +48,3 @@ def replace_vars(content, **kwargs):
             full_str_gen = f"{prefix}= {value}"
         content = content.replace(full_str, full_str_gen)
     return content
-
-#####################################################################################
-# Examples
-#####################################################################################
-def __example_search_var_in_doxyfile():
-    """
-    Example for search_var
-    """
-    srcs_root = abspath(joinpath(dirname(__file__), '..', '..', 'srcs'))
-    doxyfile_in = joinpath(srcs_root, 'doxyfile.in')
-
-    with open(doxyfile_in, mode = 'r', encoding = 'utf-8') as stream:
-        doxyfile_content = stream.read()
-
-    search_var(doxyfile_content, "QUIET")
-    search_var(doxyfile_content, "WARN_FORMAT")
-    search_var(doxyfile_content, "INPUT")
-    search_var(doxyfile_content, "INPUT_ENCODING")
-    search_var(doxyfile_content, "FILE_PATTERNS")
-
-
-def __example_gen_doxyfile():
-    """
-    Example for replace_vars
-    """
-    srcs_root = abspath(joinpath(dirname(__file__), '..', '..', 'srcs'))
-    doxyfile_in = joinpath(srcs_root, 'doxyfile.in')
-    doxyfile_out = joinpath(srcs_root, 'doxyfile')
-
-    with open(doxyfile_in, mode = 'r', encoding = 'utf-8') as stream:
-        doxyfile_content = stream.read()
-
-    doxyfile_content = replace_vars(
-        doxyfile_content,
-        INPUT = ["rain.h","rain.cpp"],
-        INPUT_ENCODING = "GBK"
-    )
-
-    with open(doxyfile_out, mode = 'w', encoding = 'utf-8') as stream:
-        stream.write(doxyfile_content)
-
-#####################################################################################
-# Entry for examples
-#####################################################################################
-if "__main__" == __name__:
-    # __example_search_var_in_doxyfile()
-    # __example_gen_doxyfile()
-    pass
