@@ -43,3 +43,5 @@ _dist*
 .install*
 _install*
 
+# Help documentation
+*.help

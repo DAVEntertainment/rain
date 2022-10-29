@@ -1,84 +1,30 @@
 """
 pylint entry
 """
-from os import walk
 from os.path import join as joinpath
-from os.path import sep as pathsep
 from os.path import abspath, dirname
 from sys import executable
-from subprocess import Popen
+from ci.pyutils.lint_utils import split_modules, glob_files
+from ci.pyutils.shell_utils import run_cmd
 
-#########################################################################
-# utilities definitions
-#########################################################################
-def _filter_files_in_dir(root, files, check_postfix):
-    """
-    Filter files in given root
-    signature:
-        _filter_files_in_dir(root, files, check_postfix):
-    params:
-        root            root for files
-        files           files before filter
-        check_postfix   postfix to check
-    """
-    file_list = []
-    for file in files:
-        for postfix in check_postfix:
-            if file.endswith(postfix):
-                full_path = joinpath(root, file)
-                file_list.append(full_path)
-                break
-    return file_list
-
-def glob_files(roots, skip_dirs = (), check_postfix = ()):
-    """
-    Glob files
-    signature:
-        glob_files(roots, skip_dirs = (), check_postfix = ())
-    params:
-        roots           root list for globs
-        skip_dirs       dir list to skip when glob
-        check_postfix   postfix to check
-    """
-    file_list = []
-
-    if len(check_postfix) == 0:
-        return file_list
-
-    for walk_root in roots:
-        for root, _, files in walk(walk_root):
-            path_coms = root.split(pathsep)
-            for skip_dir in skip_dirs:
-                if skip_dir in path_coms:
-                    break
-            else:
-                file_list += _filter_files_in_dir(root, files, check_postfix)
-    return file_list
-
-#########################################################################
-# start processing
-#########################################################################
 def main():
     """
     pylint entry
+
     signature:
         main()
+
     params:
     """
     ci_root = abspath(joinpath(dirname(__file__), '..', '..', 'ci'))
     tests_root = abspath(joinpath(dirname(__file__), '..', '..', 'tests'))
 
-    submodules = []
-    for module_root in (ci_root, tests_root):
-        for _, module_subs, _ in walk(module_root):
-            for sub in module_subs:
-                submodules.append(joinpath(module_root, sub))
-            break
+    modules = [ci_root, ] + split_modules((tests_root, ))
 
-    for submodule in submodules:
-        print(f"pylint running for {submodule}")
+    for module in modules:
+        print(f"pylint running for {module}")
         files = glob_files(
-            roots = (submodule, ),
+            roots = (module, ),
             check_postfix = ('.py', ),
             skip_dirs = ()
         )
@@ -86,12 +32,7 @@ def main():
         if len(files) == 0:
             continue
 
-        cmd = f"{executable} -m pylint {' '.join(files)}"
-        print(cmd)
-
-        with Popen(cmd) as proc:
-            proc.communicate()
-            print(f"return code {proc.returncode}")
+        run_cmd(f"{executable} -m pylint {' '.join(files)}")
 
 if "__main__" == __name__:
     main()
