@@ -1,9 +1,9 @@
 """
 cpplint entry
 """
+import sys
 from os.path import join as joinpath
 from os.path import abspath, dirname
-from sys import executable
 from ci.pyutils.lint_utils import split_modules, glob_files
 from ci.pyutils.shell_utils import run_cmd
 
@@ -32,7 +32,7 @@ def main():
         if len(files) == 0:
             continue
 
-        run_cmd(f"{executable} -m cpplint {' '.join(files)}")
+        run_cmd(f"{sys.executable} -m cpplint {' '.join(files)}")
 
 if "__main__" == __name__:
     main()
