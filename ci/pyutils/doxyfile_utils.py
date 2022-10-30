@@ -13,7 +13,7 @@ def search_var(content, var_name):
         content,
         re.MULTILINE
     )
-    print(matched)
+    # print(matched)
 
     if len(matched) == 0:
         print(f"doxyfile option {var_name} not found")
@@ -35,6 +35,8 @@ def replace_vars(content, **kwargs):
     """
     for key, value in kwargs.items():
         full_str, prefix, _ = search_var(content, key)
+        if full_str is None:
+            continue
         if isinstance(value, list):
             value_str_gen = ''
             indent = ("{:" + str(len(prefix) + 2) + "}").format(" ")

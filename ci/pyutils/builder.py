@@ -2,7 +2,7 @@
 Base builder classes
 """
 
-class StepBase:
+class Step:
     """
     Base build step
         a build step in a builder
@@ -26,29 +26,21 @@ class StepBase:
         """
 
 
-class BuilderBase:
+class Builder:
     """
     Base builder
+        a builder to control build procedure
     """
 
     def __init__(self):
         """
         init builder
         """
-        self.arguments = None
         self.config = None
         self.parser = None
         self.steps = []
 
-        self._setup_argument_parser()
         self._setup_steps()
-
-    def _setup_argument_parser(self):
-        """
-        setup argument parser for builder
-        """
-        # from argparse import ArgumentParser
-        # self.parser = ArgumentParser()
 
     def _setup_steps(self):
         """
@@ -61,14 +53,11 @@ class BuilderBase:
         setup builder's steps' dependencies
         """
 
-    def setup(self, arguments):
+    def setup(self, config):
         """
         setup builder
         """
-        self.arguments = arguments
-        self.config = self.parser.parse_args(
-            args = arguments
-        )
+        self.config = config
         self._setup_dependencies()
 
     def run(self):
