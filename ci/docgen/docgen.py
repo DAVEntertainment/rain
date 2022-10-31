@@ -2,6 +2,7 @@
 docgen entry
 """
 import sys
+import json
 from os.path import join as joinpath
 from os.path import exists as existspath
 from os.path import abspath, dirname
@@ -13,10 +14,21 @@ from ci.pyutils.path_utils import glob_files
 from ci.pyutils.shell_utils import run_cmd
 
 
-
-class SetupGenDoxyfile(Step):
+class BuildFailed(Exception):
     """
-    step generate doxyfile form doxyfile.in
+    build failed
+    """
+
+
+class StepClean(Step):
+    """
+    setup clean
+    """
+
+
+class StepRunDoxygen(Step):
+    """
+    step run doxygen
     """
 
     def __search_sources_input(self):
@@ -38,51 +50,86 @@ class SetupGenDoxyfile(Step):
         """
         doxyfile_input = {
             "OUTPUT_DIRECTORY": self.config.doxygen_out,
-            "INPUT": self.__search_sources_input()
+            "INPUT": self.__search_sources_input(),
+            "GENERATE_XML": "YES",
+            "XML_OUTPUT": self.config.doxygen_xml_out
         }
         return doxyfile_input
 
-    def run(self):
+    def __generate_doxyfile(self):
         """
-        run step
+        generate doxyfile
         """
         doxyfile_input = self.__prepare_doxyfile_input()
-        with open(self.config.doxyfile_in, mode = 'r', encoding = self.config.doxyfile_encoding) as stream:
+        with open(self.config.doxyfile_in, mode = 'r', encoding = 'utf-8') as stream:
             content = stream.read()
         content = doxyfile_utils.replace_vars(content, **doxyfile_input)
-        with open(self.config.doxyfile_out, mode = 'w', encoding = self.config.doxyfile_encoding) as stream:
+        with open(self.config.doxyfile_out, mode = 'w', encoding = 'utf-8') as stream:
             stream.write(content)
 
-
-class SetupRunDoxygen(Step):
-    """
-    step run doxygen
-    """
-
-    def run(self):
+    def __run_doxygen(self):
         """
-        run step
+        run doxygen
         """
-
         if not existspath(self.config.doxygen_out):
             makedirs(self.config.doxygen_out)
 
         cmd = f"doxygen {self.config.doxyfile_out}"
-        run_cmd(cmd)
-
-
-class SetupRunSphinx(Step):
-    """
-    step run sphinx
-    """
+        code = run_cmd(cmd)
+        if code != 0:
+            raise BuildFailed(f"run doxygen failed with code {code}")
 
     def run(self):
         """
         run step
         """
+        self.__generate_doxyfile()
+        self.__run_doxygen()
 
-        cmd = f"{sys.executable} -m sphinx.cmd.build -b html {self.config.docgen_root} {self.config.sphinx_out}"
-        run_cmd(cmd)
+
+class StepRunSphinx(Step):
+    """
+    step run sphinx
+    """
+
+    def __gen_shpinx_config_file(self):
+        """
+        run sphinx-config.json file
+        """
+        sphinx_config = {}
+
+        if existspath(self.config.sphinx_config_file):
+            with open(self.config.sphinx_config_file, mode = 'r', encoding = 'utf-8') as stream:
+                config = json.load(stream)
+            sphinx_config.update(config)
+
+        sphinx_config['breathe_projects'] = {
+            'rain': joinpath(self.config.doxygen_out, self.config.doxygen_xml_out)
+        }
+        sphinx_config['search_paths'] = [
+            self.config.repo_root
+        ]
+
+        with open(self.config.sphinx_config_file, mode = 'w', encoding = 'utf-8') as stream:
+            json.dump(sphinx_config, stream, indent = 2)
+
+
+    def __run_shpinx(self):
+        """
+        run sphinx
+        """
+        cmd = f"{sys.executable} -m sphinx.cmd.build " \
+            + f"-b html {self.config.docgen_root} {self.config.sphinx_out}"
+        code = run_cmd(cmd)
+        if code != 0:
+            raise BuildFailed(f"run sphinx failed with code {code}")
+
+    def run(self):
+        """
+        run step
+        """
+        self.__gen_shpinx_config_file()
+        self.__run_shpinx()
 
 
 class DoxygenBuilder(Builder):
@@ -91,9 +138,8 @@ class DoxygenBuilder(Builder):
     """
 
     def _setup_steps(self):
-        self.steps.append(SetupGenDoxyfile())
-        self.steps.append(SetupRunDoxygen())
-        self.steps.append(SetupRunSphinx())
+        self.steps.append(StepRunDoxygen())
+        self.steps.append(StepRunSphinx())
 
 
 def main():
@@ -105,10 +151,11 @@ def main():
     config.docgen_root = abspath(dirname(__file__))
     config.repo_root = abspath(joinpath(config.docgen_root, '..', '..'))
     config.srcs_root = abspath(joinpath(config.repo_root, 'srcs'))
-    config.doxyfile_encoding = 'utf-8'
     config.doxyfile_in = joinpath(config.docgen_root, 'doxyfile.in')
     config.doxyfile_out = joinpath(config.docgen_root, 'doxyfile')
     config.doxygen_out = joinpath(config.docgen_root, '.build', 'doxygen')
+    config.doxygen_xml_out = 'xml'
+    config.sphinx_config_file = joinpath(config.docgen_root, 'sphinx-config.json')
     config.sphinx_out = joinpath(config.docgen_root, '.build', 'sphinx')
 
     builder = DoxygenBuilder()

@@ -11,10 +11,16 @@ Welcome to rain's documentation!
    :caption: Contents:
 
 
-
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
+Content
+==================
+
+.. doxygenclass:: rain::Factory
+    :project: rain

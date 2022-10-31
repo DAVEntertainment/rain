@@ -3,7 +3,6 @@ lint utils
 """
 from os import walk
 from os.path import join as joinpath
-from os.path import sep as pathsep
 
 def split_modules(roots):
     """

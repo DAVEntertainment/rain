@@ -16,9 +16,16 @@
 
 namespace rain {
 
+//!
+//! class Factory
+//!     Factory to create rain instance
+//!
 class RAIN_API Factory {
  public:
-    void Call() {}
+    //! Create rain
+    //! @fn void Factory::CreateRain()
+    //! @brief Create default rain instance
+    void CreateRain() {}
 };
 
 }  // namespace rain

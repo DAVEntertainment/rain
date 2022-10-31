@@ -8,6 +8,13 @@ from ci.pyutils.path_utils import glob_files
 from ci.pyutils.lint_utils import split_modules
 from ci.pyutils.shell_utils import run_cmd
 
+
+class BuildFailed(Exception):
+    """
+    build failed
+    """
+
+
 def main():
     """
     pylint entry
@@ -33,7 +40,9 @@ def main():
         if len(files) == 0:
             continue
 
-        run_cmd(f"{sys.executable} -m cpplint {' '.join(files)}")
+        code = run_cmd(f"{sys.executable} -m cpplint {' '.join(files)}")
+        if code != 0:
+            raise BuildFailed(f"run cpplint failed with code {code}")
 
 if "__main__" == __name__:
     main()
