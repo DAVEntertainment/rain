@@ -8,6 +8,7 @@ from os.path import exists as existspath
 from os.path import abspath, dirname
 from os import makedirs
 from shutil import rmtree
+from types import SimpleNamespace
 from ci.pyutils.builder import Step, Builder
 from ci.pyutils import doxyfile_utils
 from ci.pyutils.path_utils import glob_files
@@ -19,38 +20,12 @@ class BuildFailed(Exception):
     build failed
     """
 
-
-class DocgenBuilderConfig:
-    """
-    builder config
-    """
-
-    def __init__(self):
-        self.clean = False
-        self.run_doxygen = True
-        self.run_sphinx = True
-
-        self.docgen_root = abspath(dirname(__file__))
-        self.repo_root = abspath(joinpath(self.docgen_root, '..', '..'))
-        self.srcs_root = abspath(joinpath(self.repo_root, 'srcs'))
-        self.build_dir = joinpath(self.docgen_root, '.build')
-        self.doxyfile_in = joinpath(self.docgen_root, 'doxyfile.in')
-        self.doxyfile_out = joinpath(self.docgen_root, 'doxyfile')
-        self.doxygen_out = joinpath(self.build_dir, 'doxygen')
-        self.doxygen_xml_out = 'xml'
-        self.sphinx_config_file = joinpath(self.docgen_root, 'sphinx-config.json')
-        self.sphinx_out = joinpath(self.build_dir, 'sphinx')
-
-
 class StepClean(Step):
     """
     setup clean
     """
 
     def run(self):
-        """
-        run step
-        """
         if not self.config.clean:
             print("skipping step clean")
             return
@@ -102,9 +77,6 @@ class StepRunDoxygen(Step):
             raise BuildFailed(f"run doxygen failed with code {code}")
 
     def run(self):
-        """
-        run step
-        """
         if not self.config.run_doxygen:
             print("skipping step doxygen")
             return
@@ -146,9 +118,6 @@ class StepRunSphinx(Step):
             raise BuildFailed(f"run sphinx failed with code {code}")
 
     def run(self):
-        """
-        run step
-        """
         if not self.config.run_sphinx:
             print("skipping step sphinx")
             return
@@ -170,3 +139,31 @@ class DocgenBuilder(Builder):
 
     def _setup_dependencies(self):
         pass
+
+
+def default_builder_config():
+    """
+    default builder config
+    """
+    config = SimpleNamespace()
+
+    # procedure control
+    config.clean = False
+    config.run_doxygen = True
+    config.run_sphinx = True
+
+    # build config
+    config.docgen_root = abspath(dirname(__file__))
+    config.repo_root = abspath(joinpath(config.docgen_root, '..', '..'))
+    config.srcs_root = abspath(joinpath(config.repo_root, 'srcs'))
+    config.build_dir = joinpath(config.docgen_root, '.build')
+    #   doxygen config
+    config.doxyfile_in = joinpath(config.docgen_root, 'doxyfile.in')
+    config.doxyfile_out = joinpath(config.docgen_root, 'doxyfile')
+    config.doxygen_out = joinpath(config.build_dir, 'doxygen')
+    config.doxygen_xml_out = 'xml'
+    #   sphinx config
+    config.sphinx_config_file = joinpath(config.docgen_root, 'sphinx-config.json')
+    config.sphinx_out = joinpath(config.build_dir, 'sphinx')
+
+    return config

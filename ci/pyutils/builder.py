@@ -9,9 +9,6 @@ class Step:
     """
 
     def __init__(self):
-        """
-        init build step
-        """
         self.config = None
 
     def setup(self, config):
@@ -33,9 +30,6 @@ class Builder:
     """
 
     def __init__(self):
-        """
-        init builder
-        """
         self.config = None
         self.parser = None
         self.steps = []
@@ -50,7 +44,7 @@ class Builder:
 
     def _setup_dependencies(self):
         """
-        setup builder's steps' dependencies
+        setup builder's dependencies between steps and config
         """
 
     def setup(self, config):
