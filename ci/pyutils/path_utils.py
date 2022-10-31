@@ -7,18 +7,6 @@ from os.path import abspath
 from os.path import sep as pathsep
 
 def _filter_files_in_root(root, files, check_postfix, skip_files):
-    """
-    Filter files in given root
-
-    signature:
-        _filter_files_in_root(root, files, check_postfix, skip_files):
-
-    params:
-        root            root for files
-        files           files before filter
-        check_postfix   postfix to check
-        skip_files      files to skip
-    """
     file_list = []
     for file in files:
         for postfix in check_postfix:
