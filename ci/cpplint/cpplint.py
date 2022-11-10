@@ -74,6 +74,8 @@ def main():
     """
     cpplint entry
     """
+    print("start from rain cpplint entry")
+
     config = SimpleNamespace()
     config.repo_root = abspath(joinpath(dirname(__file__), '..', '..'))
     config.src_root = joinpath(config.repo_root, 'srcs')

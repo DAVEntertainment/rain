@@ -7,8 +7,9 @@ from ci.docgen.docgen_builder import DocgenBuilder
 
 def main():
     """
-    doxygen build entry
+    docgen build entry
     """
+    print("start from rain docgen build entry")
     config = default_builder_config()
     builder = DocgenBuilder()
     builder.setup(config)

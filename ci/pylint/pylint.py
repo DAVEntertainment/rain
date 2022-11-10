@@ -76,6 +76,8 @@ def main():
     """
     pylint entry
     """
+    print("start from rain pylint entry")
+
     config = SimpleNamespace()
     config.repo_root = abspath(joinpath(dirname(__file__), '..', '..'))
     config.ci_root = joinpath(config.repo_root, 'ci')
