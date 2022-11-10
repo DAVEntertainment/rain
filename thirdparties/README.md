@@ -1,5 +1,6 @@
 # Description
 `thirdparties/win_x86_64_msvc2019_md`: thirdparties for win32 x86_64 msvc2019 md
+
 # Directory structure
 ```
 rain
@@ -8,7 +9,17 @@ rain
 ```
 
 # How to setup thirdparties environment
-we need to setup thirdparties for each configuration, all thirdparties are saved in repo [thirdparties](https://github.com/DAVEntertainment/thirdparties)
+we need to setup thirdparties for each configuration, all thirdparties are saved in repo [cloud](https://github.com/DAVEntertainment/cloud.git)
 
-### win32 x86_64 msvc2019 md
-`git clone https://github.com/DAVEntertainment/thirdparties.git --single-branch --branch win_x86_64_msvc2019_md win_x86_64_msvc2019_md`
+### build branch
+build branch is used to store
+
+init
+```
+git clone https://github.com/DAVEntertainment/cloud.git --single-branch --branch build build
+```
+
+### win_x86_64_msvc2019_md branch
+```
+git clone https://github.com/DAVEntertainment/cloud.git --single-branch --branch win_x86_64_msvc2019_md win_x86_64_msvc2019_md
+```
