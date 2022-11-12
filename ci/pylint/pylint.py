@@ -2,8 +2,6 @@
 pylint entry
 """
 import sys
-from os import walk
-from os.path import exists as existspath
 from os.path import join as joinpath
 from os.path import abspath, dirname
 from types import SimpleNamespace
@@ -86,17 +84,7 @@ def main():
     config.docgen_root = joinpath(config.repo_root, 'ci', 'docgen')
     config.tests_root = joinpath(config.repo_root, 'tests')
 
-    config.thirdparties_root = joinpath(config.repo_root, 'thirdparties')
-    config.tp_builder_roots = []
-    for root, dirs, _ in walk(config.thirdparties_root):
-        for platform_root in dirs:
-            build_dir = joinpath(root, platform_root, 'build')
-            if existspath(build_dir):
-                config.tp_builder_roots.append(build_dir)
-        break
-
-    config.modules = split_modules((config.ci_root, config.tests_root)) \
-        + split_modules(config.tp_builder_roots)
+    config.modules = split_modules((config.ci_root, config.tests_root))
     config.post_fix = ('.py', )
     config.skip_dirs = ('__pycache__', )
     config.skip_files = (joinpath(config.docgen_root, 'conf.py'), )

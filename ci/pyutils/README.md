@@ -4,7 +4,7 @@ create virtual environment, e.g.
 virtualenv .venv
 ```
 
-copy `ci/pyutils/<system>.pth ` to `.venv`'s `site-packages` dir, e.g.
+setup virtual environment with `setup_python_env.py`, e.g.
 ```batch
-copy ci\pyutils\win.pth .venv\Lib\site-packages\
+python setup_python_env.py .venv
 ```
