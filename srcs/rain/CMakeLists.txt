@@ -18,8 +18,8 @@ set(RAIN_SOURCES
 )
 
 add_library(rain SHARED
-    ${RAIN_SOURCES}
     ${RAIN_HEADERS}
+    ${RAIN_SOURCES}
 )
 
 target_link_libraries(rain
@@ -37,18 +37,14 @@ target_include_directories(rain SYSTEM INTERFACE
     "$<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>"
 )
 
+target_compile_definitions(rain
+    PRIVATE
+        -DRAIN_EXPORTS=1
+)
+
 set_target_properties(rain
     PROPERTIES
         PUBLIC_HEADER "${RAIN_HEADERS}"
-)
-
-##################################################################
-# generate RAIN_API macro with export helper
-##################################################################
-include(GenerateExportHeader)
-generate_export_header(rain
-    EXPORT_MACRO_NAME RAIN_API
-    EXPORT_FILE_NAME ${CMAKE_CURRENT_LIST_DIR}/rain_api.h
 )
 
 ##################################################################
