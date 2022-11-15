@@ -12,5 +12,5 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #pragma once
-#include "./factory.h"
+#include "rain/factory.h"
 

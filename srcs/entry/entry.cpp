@@ -16,6 +16,6 @@
 
 int main(int nargs, char* args[]) {
     rain::Factory factory;
-    factory.Call();
+    factory.CreateRain();
     return 0;
 }

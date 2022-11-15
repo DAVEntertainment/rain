@@ -4,8 +4,11 @@ add_subdirectory(core)
 add_subdirectory(logger)
 add_subdirectory(misc)
 
+##################################################################
+# library properties
+##################################################################
 set(RAIN_HEADERS
-    api_macro.h
+    rain_api.h
     factory.h
     rain.h
 )
@@ -34,16 +37,23 @@ target_include_directories(rain SYSTEM INTERFACE
     "$<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>"
 )
 
-target_compile_definitions(rain
-    PRIVATE
-        -DRAIN_EXPORT
-)
-
 set_target_properties(rain
     PROPERTIES
         PUBLIC_HEADER "${RAIN_HEADERS}"
 )
 
+##################################################################
+# generate RAIN_API macro with export helper
+##################################################################
+include(GenerateExportHeader)
+generate_export_header(rain
+    EXPORT_MACRO_NAME RAIN_API
+    EXPORT_FILE_NAME ${CMAKE_CURRENT_LIST_DIR}/rain_api.h
+)
+
+##################################################################
+# install
+##################################################################
 install(
     TARGETS rain
     EXPORT rain

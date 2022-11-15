@@ -12,7 +12,7 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #pragma once
-#include "rain/api_macro.h"
+#include "rain/rain_api.h"
 
 namespace rain {
 

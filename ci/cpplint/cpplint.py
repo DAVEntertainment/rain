@@ -84,7 +84,7 @@ def main():
     config.modules = [config.src_root, ] + split_modules((config.tests_root, ))
     config.post_fix = ('.cpp', '.h', '.hpp', '.cc')
     config.skip_dirs = ('.CMakeFiles', '.build', '.dist')
-    config.skip_files = ()
+    config.skip_files = ('rain_api.h', )
 
     statistics = run_lint(config)
     summary = analyze_summary(statistics)
