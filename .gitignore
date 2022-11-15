@@ -45,3 +45,8 @@ _install*
 
 # Help documentation
 *.help
+
+# Install
+bin
+lib
+include

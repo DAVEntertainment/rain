@@ -22,7 +22,7 @@ class BuildFailed(Exception):
 
 class StepClean(Step):
     """
-    setup clean
+    step clean
     """
 
     def run(self):
