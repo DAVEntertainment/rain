@@ -14,8 +14,8 @@ def example_search_var_in_doxyfile():
     """
     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     print("running example_search_var_in_doxyfile ...")
-    srcs_root = abspath(joinpath(dirname(__file__), '..', '..', 'srcs'))
-    doxyfile_in = joinpath(srcs_root, 'doxyfile.in')
+    docgen_root = abspath(dirname(__file__))
+    doxyfile_in = joinpath(docgen_root, 'doxyfile.in')
 
     with open(doxyfile_in, mode = 'r', encoding = 'utf-8') as stream:
         doxyfile_content = stream.read()
@@ -32,16 +32,16 @@ def example_gen_doxyfile():
     """
     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     print("running example_gen_doxyfile ...")
-    srcs_root = abspath(joinpath(dirname(__file__), '..', '..', 'srcs'))
-    doxyfile_in = joinpath(srcs_root, 'doxyfile.in')
-    doxyfile_out = joinpath(srcs_root, 'doxyfile')
+    docgen_root = abspath(dirname(__file__))
+    doxyfile_in = joinpath(docgen_root, 'doxyfile.in')
+    doxyfile_out = joinpath(docgen_root, 'doxyfile')
 
     with open(doxyfile_in, mode = 'r', encoding = 'utf-8') as stream:
         doxyfile_content = stream.read()
 
     doxyfile_content = doxyfile_utils.replace_vars(
         doxyfile_content,
-        INPUT = ["rain.h","rain.cpp"],
+        INPUT = ["rain.h", "rain.cpp"],
         INPUT_ENCODING = "GBK"
     )
 
