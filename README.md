@@ -1,18 +1,36 @@
 # rain
-rain is a script language for ??? (not clear for now, let's just do it)
+rain is a script language
 
 # TODO
 ### Phase 1
-- [ ] Hello World (Basic script execute, print)
+- [ ] Basic script parse
+- [ ] Built-in function: print
 - [ ] Value type: str
-- [ ] Value types: int, float
 - [ ] Variable
-- [ ] Block
-- [ ] Flow control: if/else
-- [ ] Symbols: +/-/*//
-- [ ] Function definition: def
-- [ ] Class definition: class
+- [ ] Rain entry: help, version info
+- [ ] Hello World
 
 ### Phase 2
-- [ ] Step/Breakpoint
-- [ ] Debug
+- [ ] Value type: int
+- [ ] Value type: float
+- [ ] Value type: list
+- [ ] Value type: dict
+- [ ] Symbols: +/-/*//
+
+### Phase 3
+- [ ] Keyword: if/else/elif
+
+### Phase 4
+- [ ] Block
+- [ ] Keyword: def (function definition)
+
+### Phase 5
+- [ ] Keyword: for/else
+- [ ] Keyword: while
+- [ ] Keyword: break
+- [ ] Keyword: continue
+
+### Future Topics
+- [ ] Keyword: class
+- [ ] Debug: Step/Breakpoint
+- [ ] Dump, or break on crash
