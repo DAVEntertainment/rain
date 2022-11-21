@@ -44,7 +44,7 @@ class StepRunDoxygen(Step):
         sources = []
         sources.append(joinpath(self.config.repo_root, "README.md"))
         sources.extend(glob_files(
-            roots = (self.config.srcs_root, ),
+            roots = (self.config.srcs_root, self.config.include_root),
             check_postfix = ('.cpp', '.h', '.hpp', '.cc', 'CMakeLists.txt', 'README.md'),
             skip_dirs = ('.CMakeFiles', '.build', '.dist')
         ))
@@ -155,6 +155,7 @@ def default_builder_config():
     # build config
     config.docgen_root = abspath(dirname(__file__))
     config.repo_root = abspath(joinpath(config.docgen_root, '..', '..'))
+    config.include_root = abspath(joinpath(config.repo_root, 'include'))
     config.srcs_root = abspath(joinpath(config.repo_root, 'srcs'))
     config.build_dir = joinpath(config.docgen_root, '.build')
     #   doxygen config
