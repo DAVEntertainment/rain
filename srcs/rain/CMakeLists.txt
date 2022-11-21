@@ -7,10 +7,15 @@ add_subdirectory(misc)
 ##################################################################
 # library properties
 ##################################################################
-set(RAIN_HEADERS
-    factory.h
-    rain_api.h
-    rain.h
+get_filename_component(RAIN_REPO_DIR ${CMAKE_CURRENT_LIST_DIR}/../.. ABSOLUTE)
+set(RAIN_SRCS_DIR ${RAIN_REPO_DIR}/srcs)
+set(RAIN_PUBLIC_HEADER_DIR ${RAIN_REPO_DIR}/include)
+set(RAIN_INCLUDES ${RAIN_SRCS_DIR} ${RAIN_PUBLIC_HEADER_DIR})
+
+set(RAIN_HEADERS # files in rain/include
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/factory.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/rain_api.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/rain.h
 )
 
 set(RAIN_SOURCES
@@ -29,22 +34,17 @@ target_link_libraries(rain
 
 target_include_directories(rain
     PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}/..
+        ${RAIN_INCLUDES}
 )
 
 target_include_directories(rain SYSTEM INTERFACE
-    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/..>"
+    "$<BUILD_INTERFACE:${RAIN_INCLUDES}>"
     "$<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>"
 )
 
 target_compile_definitions(rain
     PRIVATE
         -DRAIN_EXPORTS=1
-)
-
-set_target_properties(rain
-    PROPERTIES
-        PUBLIC_HEADER "${RAIN_HEADERS}"
 )
 
 ##################################################################
@@ -88,4 +88,10 @@ install(
         ${CMAKE_CURRENT_BINARY_DIR}/rainConfig.cmake
         ${CMAKE_CURRENT_BINARY_DIR}/rainConfigVersion.cmake
     DESTINATION lib/cmake/rain
+)
+
+# install headers
+install(
+    DIRECTORY ${RAIN_PUBLIC_HEADER_DIR}/rain
+    DESTINATION include
 )
