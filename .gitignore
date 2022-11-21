@@ -42,6 +42,9 @@ _build*
 _dist*
 .install*
 _install*
+.vsbuild
+.vscbuild
+.vs
 
 # Help documentation
 *.help
