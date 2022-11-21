@@ -78,10 +78,11 @@ def main():
 
     config = SimpleNamespace()
     config.repo_root = abspath(joinpath(dirname(__file__), '..', '..'))
+    config.include_root = joinpath(config.repo_root, 'include')
     config.src_root = joinpath(config.repo_root, 'srcs')
     config.tests_root = joinpath(config.repo_root, 'tests')
 
-    config.modules = [config.src_root, ] + split_modules((config.tests_root, ))
+    config.modules = [config.src_root, config.include_root] + split_modules((config.tests_root, ))
     config.post_fix = ('.cpp', '.h', '.hpp', '.cc')
     config.skip_dirs = ('.CMakeFiles', '.build', '.dist')
     config.skip_files = ('rain_api.h', )
