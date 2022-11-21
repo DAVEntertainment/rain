@@ -53,9 +53,6 @@ set_target_properties(rain
 install(
     TARGETS rain
     EXPORT rain
-    RUNTIME DESTINATION bin
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
     PUBLIC_HEADER DESTINATION include/rain
 )
 
@@ -76,7 +73,7 @@ include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
     rainConfigVersion.cmake
     VERSION 1.0.0
-    COMPATIBILITY SameMajorVersion # AnyNewerVersion|SameMajorVersion|SameMinorVersion|ExactVersion
+    COMPATIBILITY ExactVersion # SameMajorVersion|AnyNewerVersion|SameMajorVersion|SameMinorVersion|ExactVersion
 )
 
 # generate <TARGET>Config.cmake file
