@@ -8,8 +8,8 @@ add_subdirectory(misc)
 # library properties
 ##################################################################
 set(RAIN_HEADERS
-    rain_api.h
     factory.h
+    rain_api.h
     rain.h
 )
 
