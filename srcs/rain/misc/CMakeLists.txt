@@ -1,10 +1,12 @@
 
 set(RAIN_MISC_HEADERS
     ${CMAKE_CURRENT_LIST_DIR}/rain_macros.h
+    ${CMAKE_CURRENT_LIST_DIR}/string_logo.h
     ${CMAKE_CURRENT_LIST_DIR}/string_utils.h
 )
 
 set(RAIN_MISC_SOURCES
+    ${CMAKE_CURRENT_LIST_DIR}/string_logo.cpp
     ${CMAKE_CURRENT_LIST_DIR}/string_utils.cpp
 )
 

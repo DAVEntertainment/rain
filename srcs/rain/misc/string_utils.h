@@ -1,5 +1,5 @@
 /*****************************************************************************
- * api_macro.h: String utilities
+ * string_utils.h: String utilities
  *****************************************************************************
  * Copyright (C) 2022 DAV Entertainment. All rights reserved
  *

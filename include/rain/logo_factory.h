@@ -1,5 +1,5 @@
 /*****************************************************************************
- * string_utils.cpp: String utilities
+ * logo_factory.h: Logo Factory
  *****************************************************************************
  * Copyright (C) 2022 DAV Entertainment. All rights reserved
  *
@@ -11,4 +11,22 @@
  * Change History:
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
-#include "rain/misc/string_utils.h"
+#pragma once
+#include <string>
+#include "rain/rain_api.h"
+
+namespace rain {
+
+//!
+//! class LogoFactory
+//!     Logo Factory
+//!
+class RAIN_API LogoFactory final {
+ public:
+    //! Create string logo
+    //! @fn void LogoFactory::CreateStringLogo()
+    //! @brief Create string logo
+    std::string CreateStringLogo() const;
+};
+
+}  // namespace rain

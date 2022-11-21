@@ -14,39 +14,14 @@
 #include <iostream>
 #include "rain/rain.h"
 
-
-const char* logo = " It's raining ...                                 \n"
-"                                                                     \n"
-"                                                                     \n"
-"                    |   |                      |                     \n"
-"                  |      |         |                                 \n"
-"                        |             |                              \n"
-"                |                         |                          \n"
-"                      |         |        |                           \n"
-"                     |    ___---___                                  \n"
-"                  __---```  `   `   ```---__                         \n"
-"         |__---```     `   `     `    `     ```---__                 \n"
-"  ___---``         `      `       `       `         ``---___         \n"
-"         ```  ---  ___   `         `   ___   ---    ```              \n"
-"                         ````|| ````                                 \n"
-"                             ||                   ___     ____       \n"
-"                             ||                 /    /   /    /      \n"
-"                             ||                |    /   |    /       \n"
-"                             ||               |    |___|    |        \n"
-"                             ||             /                 \\     \n"
-"                             ||            / ____       ____   \\    \n"
-"                             ||            /   /x\\   /   /x\\  |    \n"
-"                            _||             \\__\\x/    \\__\\x/     \n"
-"                           | ||`             \\                /     \n"
-"                            ```                                      \n"
-"                                                                     \n";
-
-
 int main(int nargs, char* args[]) {
     rain::Factory factory;
     factory.CreateRain();
+
     if (nargs == 1) {
-        std::cout << logo << std::endl;
+        // this output will eat the last line before this,
+        //  don't know why, not digging
+        std::cout << rain::LogoFactory().CreateStringLogo() << std::endl;
     }
     return 0;
 }

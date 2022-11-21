@@ -13,4 +13,4 @@
  *****************************************************************************/
 #pragma once
 #include "rain/factory.h"
-
+#include "rain/logo_factory.h"

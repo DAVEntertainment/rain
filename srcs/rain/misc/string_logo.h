@@ -1,5 +1,5 @@
 /*****************************************************************************
- * string_utils.cpp: String utilities
+ * string_logo.h: String logo
  *****************************************************************************
  * Copyright (C) 2022 DAV Entertainment. All rights reserved
  *
@@ -9,6 +9,28 @@
  * found in the LICENSE file.
  *****************************************************************************
  * Change History:
- *  2022-10-27      Wu Wei          Created
+ *  2022-11-22      Wu Wei          Created
  *****************************************************************************/
-#include "rain/misc/string_utils.h"
+#pragma once
+#include <string>
+#include "rain/misc/rain_macros.h"
+
+START_RAIN()
+
+//!
+//! class StringLogo
+//!     string logo creator
+//!
+class StringLogo final {
+ public:
+    //! Get Logo
+    //! @fn void StringLogo::GetLogo()
+    //! @brief Get string logo
+    const std::string& GetLogo() const;
+    //! Clone Logo
+    //! @fn void StringLogo::CloneLogo()
+    //! @brief Clone string logo
+    std::string CloneLogo() const;
+};
+
+STOP_RAIN()

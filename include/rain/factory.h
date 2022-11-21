@@ -20,7 +20,7 @@ namespace rain {
 //! class Factory
 //!     Factory to create rain instance
 //!
-class RAIN_API Factory {
+class RAIN_API Factory final {
  public:
     //! Create rain
     //! @fn void Factory::CreateRain()
