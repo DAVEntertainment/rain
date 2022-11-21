@@ -16,6 +16,8 @@
 
 
 const char* logo = " It's raining ...                                 \n"
+"                                                                     \n"
+"                                                                     \n"
 "                    |   |                      |                     \n"
 "                  |      |         |                                 \n"
 "                        |             |                              \n"
