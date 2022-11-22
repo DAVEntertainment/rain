@@ -13,7 +13,7 @@
  *****************************************************************************/
 #include "rain/misc/string_logo.h"
 
-START_RAIN()
+namespace rain {
 
 static const char logo[] = "It's raining ...                          \n"
 "                                                                     \n"
@@ -41,12 +41,9 @@ static const char logo[] = "It's raining ...                          \n"
 "                            ```                                      \n"
 "                                                                     \n";
 
-const std::string& StringLogo::GetLogo() const {
-    return logo;
+std::string StringLogo::GetLogo() const noexcept {
+    static std::string logo_str(logo);
+    return logo_str;
 }
 
-std::string StringLogo::CloneLogo() const {
-    return logo;
-}
-
-STOP_RAIN()
+}  // namespace rain

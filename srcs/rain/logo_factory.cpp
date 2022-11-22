@@ -11,15 +11,13 @@
  * Change History:
  *  2022-11-22      Wu Wei          Created
  *****************************************************************************/
-#include "rain/misc/rain_macros.h"
 #include "rain/misc/string_logo.h"
 #include "rain/logo_factory.h"
 
-START_RAIN()
+namespace rain {
 
 std::string LogoFactory::CreateStringLogo() const {
-    StringLogo logo;
-    return logo.GetLogo();
+    return StringLogo().GetLogo();
 }
 
-STOP_RAIN()
+}  // namespace rain

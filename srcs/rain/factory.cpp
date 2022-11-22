@@ -11,10 +11,9 @@
  * Change History:
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
-#include "rain/misc/rain_macros.h"
 #include "rain/factory.h"
 
-START_RAIN()
+namespace rain {
 
 
-STOP_RAIN()
+}  // namespace rain

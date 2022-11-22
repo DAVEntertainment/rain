@@ -13,9 +13,8 @@
  *****************************************************************************/
 #pragma once
 #include <string>
-#include "rain/misc/rain_macros.h"
 
-START_RAIN()
+namespace rain {
 
 //!
 //! class StringLogo
@@ -26,11 +25,7 @@ class StringLogo final {
     //! Get Logo
     //! @fn void StringLogo::GetLogo()
     //! @brief Get string logo
-    const std::string& GetLogo() const;
-    //! Clone Logo
-    //! @fn void StringLogo::CloneLogo()
-    //! @brief Clone string logo
-    std::string CloneLogo() const;
+    std::string GetLogo() const noexcept;
 };
 
-STOP_RAIN()
+}  // namespace rain

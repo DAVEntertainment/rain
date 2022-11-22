@@ -12,9 +12,8 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #pragma once
-#include "rain/misc/rain_macros.h"
 
-START_RAIN();
+namespace rain {
 
 class Interpreter final {
  public:
@@ -23,4 +22,4 @@ class Interpreter final {
     void Interpret();
 };
 
-STOP_RAIN();
+}  // namespace rain
