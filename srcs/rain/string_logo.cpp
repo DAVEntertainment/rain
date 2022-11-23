@@ -11,7 +11,7 @@
  * Change History:
  *  2022-11-22      Wu Wei          Created
  *****************************************************************************/
-#include "rain/misc/string_logo.h"
+#include "rain/string_logo.h"
 
 namespace rain {
 

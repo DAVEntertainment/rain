@@ -16,7 +16,7 @@
 
 namespace rain {
 
-std::string LogoFactory::CreateStringLogo() const {
+std::string LogoFactory::CreateStringLogo() const noexcept {
     return StringLogo().GetLogo();
 }
 

@@ -1,0 +1,46 @@
+/*****************************************************************************
+ * version.def.h: Version definitions
+ *****************************************************************************
+ * Copyright (C) 2022 DAV Entertainment. All rights reserved
+ *
+ * Authors: Wu Wei <wuwei_543333827@126.com>
+ *
+ * Use of this source code is governed by a MIT license that can be
+ * found in the LICENSE file.
+ *****************************************************************************
+ * Change History:
+ *  2022-11-23      Wu Wei          Created
+ *****************************************************************************/
+
+// IMPORTANT !!! don't track version.def.h
+// IMPORTANT !!! track version.def.h.in instead
+
+#cmakedefine RAIN_VERSION_MAJOR  @RAIN_VERSION_MAJOR@
+#ifndef RAIN_VERSION_MAJOR
+    #define RAIN_VERSION_MAJOR 0
+#endif
+
+#cmakedefine RAIN_VERSION_MINOR  @RAIN_VERSION_MINOR@
+#ifndef RAIN_VERSION_MINOR
+    #define RAIN_VERSION_MINOR 0
+#endif
+
+#cmakedefine RAIN_VERSION_PATCH  @RAIN_VERSION_PATCH@
+#ifndef RAIN_VERSION_PATCH
+    #define RAIN_VERSION_PATCH 0
+#endif
+
+#cmakedefine RAIN_VERSION_BUILD  @RAIN_VERSION_BUILD@
+#ifndef RAIN_VERSION_BUILD
+    #define RAIN_VERSION_BUILD 0
+#endif
+
+#cmakedefine RAIN_VERSION_TAG  "@RAIN_VERSION_TAG@"
+#ifndef RAIN_VERSION_TAG
+    #define RAIN_VERSION_TAG ""
+#endif
+
+#cmakedefine RAIN_VERSION_HASH   "@RAIN_VERSION_HASH@"
+#ifndef RAIN_VERSION_HASH
+    #define RAIN_VERSION_HASH "0000000000000000000000000000000000000000"
+#endif

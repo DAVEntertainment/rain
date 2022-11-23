@@ -14,14 +14,17 @@ set(RAIN_INCLUDES ${RAIN_SRCS_DIR} ${RAIN_PUBLIC_HEADER_DIR})
 
 set(RAIN_HEADERS # files in rain/include
     ${RAIN_PUBLIC_HEADER_DIR}/rain/factory.h
-    ${RAIN_PUBLIC_HEADER_DIR}/rain/logo_factory.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/rain_api.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/rain.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/string_logo.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/version.h
 )
 
 set(RAIN_SOURCES
     factory.cpp
-    logo_factory.cpp
+    string_logo.cpp
+    version.cpp
+    version.def.h
 )
 
 add_library(rain SHARED
@@ -66,6 +69,9 @@ install(
     DESTINATION lib/cmake/rain
 )
 
+# generate version
+include(${CMAKE_CURRENT_LIST_DIR}/gen-version.cmake)
+
 # CMakePackageConfigHelpers provides
 #   write_basic_package_version_file
 #   configure_package_config_file
@@ -74,7 +80,7 @@ include(CMakePackageConfigHelpers)
 # generate <TARGET>ConfigVersion.cmake file
 write_basic_package_version_file(
     rainConfigVersion.cmake
-    VERSION 1.0.0
+    VERSION ${RAIN_VERSION_MAJOR}.${RAIN_VERSION_MINOR}.${RAIN_VERSION_PATCH}
     COMPATIBILITY ExactVersion # SameMajorVersion|AnyNewerVersion|SameMajorVersion|SameMinorVersion|ExactVersion
 )
 

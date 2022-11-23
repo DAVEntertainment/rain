@@ -21,7 +21,7 @@ int main(int nargs, char* args[]) {
     if (nargs == 1) {
         // this output will eat the last line before this,
         //  don't know why, not digging
-        std::cout << rain::LogoFactory().CreateStringLogo() << std::endl;
+        std::cout << rain::StringLogo().GetLogo() << std::endl;
     }
     return 0;
 }

@@ -13,6 +13,7 @@
  *****************************************************************************/
 #pragma once
 #include <string>
+#include "rain/rain_api.h"
 
 namespace rain {
 
@@ -20,7 +21,7 @@ namespace rain {
 //! class StringLogo
 //!     string logo creator
 //!
-class StringLogo final {
+class RAIN_API StringLogo final {
  public:
     //! Get Logo
     //! @fn void StringLogo::GetLogo()

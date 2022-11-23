@@ -12,5 +12,7 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #pragma once
+#include "rain/rain_api.h"
 #include "rain/factory.h"
-#include "rain/logo_factory.h"
+#include "rain/string_logo.h"
+#include "rain/version.h"
