@@ -11,6 +11,7 @@
  * Change History:
  *  2022-11-23      Wu Wei          Created
  *****************************************************************************/
+#pragma once
 
 // IMPORTANT !!! don't track version.def.h
 // IMPORTANT !!! track version.def.h.in instead
@@ -42,5 +43,5 @@
 
 #cmakedefine RAIN_VERSION_HASH   "@RAIN_VERSION_HASH@"
 #ifndef RAIN_VERSION_HASH
-    #define RAIN_VERSION_HASH "0000000000000000000000000000000000000000"
+    #define RAIN_VERSION_HASH ""
 #endif

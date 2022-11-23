@@ -21,11 +21,29 @@ namespace rain {
 //! Version class, contains Rain Version Info
 //!
 class RAIN_API Version final {
+ private:
+    uint32_t m_major{0};
+    uint32_t m_minor{0};
+    uint32_t m_patch{0};
+    uint64_t m_build{0};
+    std::string m_tag{""};
+    std::string m_hash{"0000000000000000000000000000000000000000"};
+
+ public:
+    explicit Version(
+        uint32_t major = 0,
+        uint32_t minor = 0,
+        uint32_t patch = 0,
+        uint64_t build = 0,
+        const std::string& tag = "",
+        const std::string& hash = "")
+    noexcept;
+
  public:
     //!
     //! Get current version
     //!
-    
+    static const Version& CurrentVersion() noexcept;
     //!
     //! Get full version
     //!
@@ -45,15 +63,18 @@ class RAIN_API Version final {
     //!
     //! Get build version
     //!
-    uint32_t GetBuild() const noexcept;
+    uint64_t GetBuild() const noexcept;
     //!
     //! Get tag
     //!
-    std::string GetTag() const noexcept;
+    const std::string& GetTag() const noexcept;
     //!
     //! Get hash
     //!
-    std::string GetHash() const noexcept;
+    const std::string& GetHash() const noexcept;
+
+ public:
+    // TODO(Wu Wei): support version compare
 };
 
 }  // namespace rain
