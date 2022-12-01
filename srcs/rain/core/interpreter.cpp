@@ -14,7 +14,7 @@
 #include <iostream>
 #include "rain/core/interpreter.h"
 
-namespace rain {
+RAIN_START()
 
 Interpreter::Interpreter() {}
 
@@ -24,4 +24,4 @@ void Interpreter::Interpret() {
     ::std::cout << "joker" << ::std::endl;
 }
 
-}  // namespace rain
+RAIN_STOP()

@@ -14,10 +14,10 @@
 #include "rain/misc/string_logo.h"
 #include "rain/logo_factory.h"
 
-namespace rain {
+RAIN_START()
 
 std::string LogoFactory::CreateStringLogo() const noexcept {
     return StringLogo().GetLogo();
 }
 
-}  // namespace rain
+RAIN_STOP()

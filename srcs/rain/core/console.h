@@ -12,8 +12,9 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #pragma once
+#include "rain/rain_macros.h"
 
-namespace rain {
+RAIN_START()
 
 class Console final {
  public:
@@ -21,4 +22,4 @@ class Console final {
     ~Console();
 };
 
-}  // namespace rain
+RAIN_STOP()

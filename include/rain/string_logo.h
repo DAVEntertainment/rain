@@ -13,9 +13,10 @@
  *****************************************************************************/
 #pragma once
 #include <string>
+#include "rain/rain_macros.h"
 #include "rain/rain_api.h"
 
-namespace rain {
+RAIN_START()
 
 //!
 //! class StringLogo
@@ -29,4 +30,4 @@ class RAIN_API StringLogo final {
     std::string GetLogo() const noexcept;
 };
 
-}  // namespace rain
+RAIN_STOP()

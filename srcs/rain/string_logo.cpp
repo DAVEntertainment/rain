@@ -13,7 +13,7 @@
  *****************************************************************************/
 #include "rain/string_logo.h"
 
-namespace rain {
+RAIN_START()
 
 static const char logo[] = "It's raining ...                          \n"
 "                                                                     \n"
@@ -46,4 +46,4 @@ std::string StringLogo::GetLogo() const noexcept {
     return logo_str;
 }
 
-}  // namespace rain
+RAIN_STOP()

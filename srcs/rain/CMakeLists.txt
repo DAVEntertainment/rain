@@ -15,6 +15,7 @@ set(RAIN_INCLUDES ${RAIN_SRCS_DIR} ${RAIN_PUBLIC_HEADER_DIR})
 set(RAIN_HEADERS # files in rain/include
     ${RAIN_PUBLIC_HEADER_DIR}/rain/factory.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/rain_api.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/rain_macros.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/rain.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/string_logo.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/version.h

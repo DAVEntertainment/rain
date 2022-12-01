@@ -15,7 +15,7 @@
 #include "rain/version.h"
 #include "rain/version.def.h"
 
-namespace rain {
+RAIN_START()
 
 static const Version current(
     RAIN_VERSION_MAJOR,
@@ -85,4 +85,4 @@ const std::string& Version::GetHash() const noexcept {
     return m_hash;
 }
 
-}  // namespace rain
+RAIN_STOP()

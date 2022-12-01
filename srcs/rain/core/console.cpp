@@ -14,10 +14,10 @@
 #include <iostream>
 #include "rain/core/console.h"
 
-namespace rain {
+RAIN_START()
 
 Console::Console() {}
 
 Console::~Console() {}
 
-}  // namespace rain
+RAIN_STOP()

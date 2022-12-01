@@ -13,7 +13,7 @@
  *****************************************************************************/
 #include "rain/factory.h"
 
-namespace rain {
+RAIN_START()
 
 
-}  // namespace rain
+RAIN_STOP()

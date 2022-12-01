@@ -12,9 +12,10 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #pragma once
+#include "rain/rain_macros.h"
 #include "rain/rain_api.h"
 
-namespace rain {
+RAIN_START()
 
 //!
 //! class Factory
@@ -28,4 +29,4 @@ class RAIN_API Factory final {
     void CreateRain() {}
 };
 
-}  // namespace rain
+RAIN_STOP()

@@ -14,8 +14,9 @@
 #pragma once
 #include <string>
 #include "rain/rain_api.h"
+#include "rain/rain_macros.h"
 
-namespace rain {
+RAIN_START()
 
 //!
 //! Version class, contains Rain Version Info
@@ -77,4 +78,4 @@ class RAIN_API Version final {
     // TODO(Wu Wei): support version compare
 };
 
-}  // namespace rain
+RAIN_STOP()
