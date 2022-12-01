@@ -32,12 +32,12 @@ class RAIN_API Version final {
 
  public:
     explicit Version(
-        uint32_t major = 0,
-        uint32_t minor = 0,
-        uint32_t patch = 0,
-        uint64_t build = 0,
-        const std::string& tag = "",
-        const std::string& hash = "")
+       uint32_t major = 0,
+       uint32_t minor = 0,
+       uint32_t patch = 0,
+       uint64_t build = 0,
+       const std::string& tag = "",
+       const std::string& hash = "")
     noexcept;
 
  public:

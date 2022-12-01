@@ -34,10 +34,10 @@ Version::Version(
     const std::string& tag,
     const std::string& hash
 ) noexcept :
-    m_major(),
-    m_minor(),
-    m_patch(),
-    m_build(),
+    m_major(major),
+    m_minor(minor),
+    m_patch(patch),
+    m_build(build),
     m_tag(tag),
     m_hash(hash) {
 }
