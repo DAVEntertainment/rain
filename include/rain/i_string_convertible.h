@@ -1,5 +1,5 @@
 /*****************************************************************************
- * factory.cpp: Factory
+ * i_string_convertible.h: Interpreter interface
  *****************************************************************************
  * Copyright (C) 2022 DAV Entertainment. All rights reserved
  *
@@ -9,11 +9,17 @@
  * found in the LICENSE file.
  *****************************************************************************
  * Change History:
- *  2022-10-27      Wu Wei          Created
+ *  2022-12-01      Wu Wei          Created
  *****************************************************************************/
-#include "rain/factory.h"
+#pragma once
+#include <string>
+#include "rain/rain_macros.h"
 
 RAIN_START()
 
+class IStringConvertible {
+ public:
+    virtual std::string ToString() const = 0;
+};
 
 RAIN_STOP()

@@ -1,5 +1,5 @@
 /*****************************************************************************
- * rain.h: Rain DLL include entry
+ * string_logo.h: String logo interface
  *****************************************************************************
  * Copyright (C) 2022 DAV Entertainment. All rights reserved
  *
@@ -9,9 +9,17 @@
  * found in the LICENSE file.
  *****************************************************************************
  * Change History:
- *  2022-10-27      Wu Wei          Created
+ *  2022-12-01      Wu Wei          Created
  *****************************************************************************/
 #pragma once
-#include "rain/rain_api.h"
-#include "rain/string_logo_factory.h"
-#include "rain/version_factory.h"
+#include "rain/i_string_convertible.h"
+
+RAIN_START()
+
+class IStringLogo:
+    public IStringConvertible
+{
+};
+
+RAIN_STOP()
+

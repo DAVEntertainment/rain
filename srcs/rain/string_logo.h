@@ -1,5 +1,5 @@
 /*****************************************************************************
- * rain.h: Rain DLL include entry
+ * string_logo.h: String logo
  *****************************************************************************
  * Copyright (C) 2022 DAV Entertainment. All rights reserved
  *
@@ -9,9 +9,20 @@
  * found in the LICENSE file.
  *****************************************************************************
  * Change History:
- *  2022-10-27      Wu Wei          Created
+ *  2022-11-22      Wu Wei          Created
  *****************************************************************************/
 #pragma once
-#include "rain/rain_api.h"
-#include "rain/string_logo_factory.h"
-#include "rain/version_factory.h"
+#include <string>
+#include "rain/rain_macros.h"
+#include "rain/i_string_logo.h"
+
+RAIN_START()
+
+class StringLogo final:
+    public IStringLogo
+{
+ public:
+    std::string ToString() const override;
+};
+
+RAIN_STOP()

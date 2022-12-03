@@ -1,5 +1,5 @@
 /*****************************************************************************
- * string_logo.h: String logo
+ * string_logo_factory.h: String logo factory
  *****************************************************************************
  * Copyright (C) 2022 DAV Entertainment. All rights reserved
  *
@@ -9,25 +9,42 @@
  * found in the LICENSE file.
  *****************************************************************************
  * Change History:
- *  2022-11-22      Wu Wei          Created
+ *  2022-12-01      Wu Wei          Created
  *****************************************************************************/
 #pragma once
 #include <string>
-#include "rain/rain_macros.h"
+#include <vector>
 #include "rain/rain_api.h"
+#include "rain/rain_macros.h"
+#include "rain/i_string_logo.h"
 
 RAIN_START()
 
-//!
-//! class StringLogo
-//!     string logo creator
-//!
-class RAIN_API StringLogo final {
+class RAIN_API StringLogoFactory final {
  public:
-    //! Get Logo
-    //! @fn void StringLogo::GetLogo()
-    //! @brief Get string logo
-    std::string GetLogo() const noexcept;
+    //!
+    //! Create string logo
+    //!
+    IStringLogo* Create (
+        const std::string& product
+    ) const;
+    //!
+    //! Destroy string logo
+    //!
+    bool Destroy (
+        IStringLogo* logo
+    ) const;
+    //!
+    //! Get product list
+    //!
+    const std::vector<std::string>& GetProducts() const;
+
+ public:
+    //!
+    //! Product names
+    //!
+    const std::string kRain{"rain"};
 };
 
 RAIN_STOP()
+

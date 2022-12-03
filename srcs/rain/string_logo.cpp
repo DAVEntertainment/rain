@@ -41,9 +41,8 @@ static const char logo[] = "It's raining ...                          \n"
 "                            ```                                      \n"
 "                                                                     \n";
 
-std::string StringLogo::GetLogo() const noexcept {
-    static std::string logo_str(logo);
-    return logo_str;
+std::string StringLogo::ToString() const {
+    return std::string(logo);
 }
 
 RAIN_STOP()

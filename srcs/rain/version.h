@@ -42,6 +42,8 @@ class Version:
        const std::string& hash = "0000000000000000000000000000000000000000")
     noexcept;
 
+    virtual ~Version();
+
  public:
     //!
     //! Get current version

@@ -18,10 +18,11 @@ int main(int nargs, char* args[]) {
     rain::Factory factory;
     factory.CreateRain();
 
-    if (nargs == 1) {
-        // this output will eat the last line before this,
-        //  don't know why, not digging
-        std::cout << rain::StringLogo().GetLogo() << std::endl;
+    if (1 == nargs) {
+        rain::StringLogoFactory factory;
+        auto logo = factory.Create(factory.kRain);
+        std::cout << logo->ToString() << std::endl;
+        factory.Destroy(logo);
     } else {
         std::string version_tag("--version");
         for (int i = 0; i < nargs; ++i) {

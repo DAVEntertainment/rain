@@ -1,5 +1,5 @@
 /*****************************************************************************
- * version_factory.h: Version factory
+ * string_logo_factory.h: String logo factory
  *****************************************************************************
  * Copyright (C) 2022 DAV Entertainment. All rights reserved
  *
@@ -12,28 +12,32 @@
  *  2022-12-01      Wu Wei          Created
  *****************************************************************************/
 #pragma once
-#include "rain/current_version.h"
-#include "rain/version_factory.h"
+#include "rain/string_logo_factory.h"
+#include "rain/string_logo.h"
 
 RAIN_START()
 
-IVersion* VersionFactory::Create(const std::string& product) const {
-    if(product == kCurrent) {
-        return new CurrentVersion();
+IStringLogo* StringLogoFactory::Create (
+    const std::string& product
+) const {
+    if (product == kRain) {
+        return new StringLogo();
     }
     return nullptr;
 }
 
-bool VersionFactory::Destroy(IVersion* version) const {
-    if (nullptr != version) {
-        delete version;
+bool StringLogoFactory::Destroy(
+    IStringLogo* logo
+) const {
+    if (nullptr != logo) {
+        delete logo;
     }
     return true;
 }
 
-const std::vector<std::string>& VersionFactory::GetProducts() const {
+const std::vector<std::string>& StringLogoFactory::GetProducts() const {
     std::vector<std::string> products {
-        kCurrent
+        kRain
     };
     return products;
 }
