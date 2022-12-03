@@ -13,15 +13,17 @@
  *****************************************************************************/
 #pragma once
 #include <string>
-#include "rain/rain_api.h"
 #include "rain/rain_macros.h"
+#include "rain/i_version.h"
 
 RAIN_START()
 
 //!
 //! Version class, contains Rain Version Info
 //!
-class RAIN_API Version final {
+class Version:
+   public IVersion
+{
  private:
     uint32_t m_major{0};
     uint32_t m_minor{0};
@@ -37,7 +39,7 @@ class RAIN_API Version final {
        uint32_t patch = 0,
        uint64_t build = 0,
        const std::string& tag = "",
-       const std::string& hash = "")
+       const std::string& hash = "0000000000000000000000000000000000000000")
     noexcept;
 
  public:
@@ -48,31 +50,31 @@ class RAIN_API Version final {
     //!
     //! Get full version
     //!
-    std::string GetFullVersion() const noexcept;
+    virtual std::string GetFullVersion() const noexcept override;
     //!
     //! Get major version
     //!
-    uint32_t GetMajor() const noexcept;
+    virtual uint32_t GetMajor() const noexcept override;
     //!
     //! Get minor version
     //!
-    uint32_t GetMinor() const noexcept;
+    virtual uint32_t GetMinor() const noexcept override;
     //!
     //! Get patch version
     //!
-    uint32_t GetPatch() const noexcept;
+    virtual uint32_t GetPatch() const noexcept override;
     //!
     //! Get build version
     //!
-    uint64_t GetBuild() const noexcept;
+    virtual uint64_t GetBuild() const noexcept override;
     //!
     //! Get tag
     //!
-    const std::string& GetTag() const noexcept;
+    virtual const std::string& GetTag() const noexcept override;
     //!
     //! Get hash
     //!
-    const std::string& GetHash() const noexcept;
+    virtual const std::string& GetHash() const noexcept override;
 
  public:
     // TODO(Wu Wei): support version compare

@@ -14,18 +14,23 @@ set(RAIN_INCLUDES ${RAIN_SRCS_DIR} ${RAIN_PUBLIC_HEADER_DIR})
 
 set(RAIN_HEADERS # files in rain/include
     ${RAIN_PUBLIC_HEADER_DIR}/rain/factory.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/rain.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/rain_api.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/rain_macros.h
-    ${RAIN_PUBLIC_HEADER_DIR}/rain/rain.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/string_logo.h
-    ${RAIN_PUBLIC_HEADER_DIR}/rain/version.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/i_version.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/version_factory.h
 )
 
 set(RAIN_SOURCES
     factory.cpp
     string_logo.cpp
+    current_version.cpp
+    current_version.h
+    version_factory.cpp
     version.cpp
     version.def.h
+    version.h
 )
 
 add_library(rain SHARED

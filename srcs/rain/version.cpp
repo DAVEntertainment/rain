@@ -17,15 +17,6 @@
 
 RAIN_START()
 
-static const Version current(
-    RAIN_VERSION_MAJOR,
-    RAIN_VERSION_MINOR,
-    RAIN_VERSION_PATCH,
-    RAIN_VERSION_BUILD,
-    RAIN_VERSION_TAG,
-    RAIN_VERSION_HASH
-);
-
 Version::Version(
     uint32_t major,
     uint32_t minor,
@@ -40,10 +31,6 @@ Version::Version(
     m_build(build),
     m_tag(tag),
     m_hash(hash) {
-}
-
-const Version& Version::CurrentVersion() noexcept {
-    return current;
 }
 
 std::string Version::GetFullVersion() const noexcept {

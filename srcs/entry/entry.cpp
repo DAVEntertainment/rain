@@ -26,8 +26,10 @@ int main(int nargs, char* args[]) {
         std::string version_tag("--version");
         for (int i = 0; i < nargs; ++i) {
             if (0 == version_tag.compare(args[i])) {
-                auto v = rain::Version::CurrentVersion().GetFullVersion();
-                std::cout << v << std::endl;
+                rain::VersionFactory factory;
+                auto v = factory.Create(factory.kCurrent);
+                std::cout << v->GetFullVersion() << std::endl;
+                factory.Destroy(v);
             }
         }
     }
