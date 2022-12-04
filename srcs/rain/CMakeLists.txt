@@ -16,14 +16,18 @@ set(RAIN_HEADERS # files in rain/include
     ${RAIN_PUBLIC_HEADER_DIR}/rain/rain.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/rain_api.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/rain_macros.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/i_interpreter.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/i_robject.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/i_string_convertible.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/i_string_logo.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/i_version.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/version_factory.h
     ${RAIN_PUBLIC_HEADER_DIR}/rain/string_logo_factory.h
+    ${RAIN_PUBLIC_HEADER_DIR}/rain/interpreter_factory.h
 )
 
 set(RAIN_SOURCES
+    interpreter_factory.cpp
     string_logo_factory.cpp
     string_logo.cpp
     string_logo.h

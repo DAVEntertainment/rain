@@ -1,5 +1,5 @@
 /*****************************************************************************
- * factory.h: Factory
+ * interpreter_factory.h: Interpreter factory
  *****************************************************************************
  * Copyright (C) 2022 DAV Entertainment. All rights reserved
  *
@@ -12,21 +12,38 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #pragma once
+#include <vector>
+#include <string>
 #include "rain/rain_macros.h"
 #include "rain/rain_api.h"
+#include "rain/i_interpreter.h"
 
 RAIN_START()
 
-//!
-//! class Factory
-//!     Factory to create rain instance
-//!
-class RAIN_API Factory final {
+class RAIN_API InterpreterFactory final {
  public:
-    //! Create rain
-    //! @fn void Factory::CreateRain()
-    //! @brief Create default rain instance
-    void CreateRain() {}
+    //!
+    //! Create interpreter
+    //!
+    IInterpreter* Create(
+        const std::string& product
+    );
+    //!
+    //! Destroy interpreter
+    //!
+    bool Destroy (
+        IInterpreter* logo
+    );
+    //!
+    //! Get product list
+    //!
+    const std::vector<std::string> GetProducts() const;
+
+ public:
+    //!
+    //! Product names
+    //!
+    const std::string kRain{"rain"};
 };
 
 RAIN_STOP()

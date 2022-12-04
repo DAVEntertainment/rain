@@ -12,17 +12,27 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include "rain/rain.h"
 
 int main(int nargs, char* args[]) {
-    rain::Factory factory;
-    factory.CreateRain();
-
     if (1 == nargs) {
         rain::StringLogoFactory factory;
         auto logo = factory.Create(factory.kRain);
         std::cout << logo->ToString() << std::endl;
         factory.Destroy(logo);
+    } else if (2 == nargs) {
+        std::string file(args[1]);
+        std::cout << "using " << file << std::endl;
+        std::ifstream istm(file, std::ios::in | std::ios::binary);
+        if (!istm.is_open()) {
+            std::cout << "failed to open file" << std::endl;
+        } else {
+            std::stringstream ss;
+            ss << istm.rdbuf();
+            std::cout << ss.str() << std::endl;
+        }
     } else {
         std::string version_tag("--version");
         for (int i = 0; i < nargs; ++i) {
