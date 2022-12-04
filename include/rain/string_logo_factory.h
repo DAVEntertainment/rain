@@ -27,17 +27,17 @@ class RAIN_API StringLogoFactory final {
     //!
     IStringLogo* Create (
         const std::string& product
-    ) const;
+    );
     //!
     //! Destroy string logo
     //!
     bool Destroy (
         IStringLogo* logo
-    ) const;
+    );
     //!
     //! Get product list
     //!
-    const std::vector<std::string>& GetProducts() const;
+    const std::vector<std::string> GetProducts() const;
 
  public:
     //!

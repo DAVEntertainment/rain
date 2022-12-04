@@ -27,17 +27,17 @@ class RAIN_API VersionFactory final {
     //!
     IVersion* Create(
         const std::string& product
-    ) const;
+    );
     //!
     //! Destroy version
     //!
     bool Destroy(
         IVersion* version
-    ) const;
+    );
     //!
     //! Get product list
     //!
-    const std::vector<std::string>& GetProducts() const;
+    const std::vector<std::string> GetProducts() const;
 
  public:
     //!

@@ -17,21 +17,25 @@
 
 RAIN_START()
 
-IVersion* VersionFactory::Create(const std::string& product) const {
+IVersion* VersionFactory::Create(
+    const std::string& product
+) {
     if(product == kCurrent) {
         return new CurrentVersion();
     }
     return nullptr;
 }
 
-bool VersionFactory::Destroy(IVersion* version) const {
+bool VersionFactory::Destroy(
+    IVersion* version
+) {
     if (nullptr != version) {
         delete version;
     }
     return true;
 }
 
-const std::vector<std::string>& VersionFactory::GetProducts() const {
+const std::vector<std::string> VersionFactory::GetProducts() const {
     std::vector<std::string> products {
         kCurrent
     };

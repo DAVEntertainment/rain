@@ -19,7 +19,7 @@ RAIN_START()
 
 IStringLogo* StringLogoFactory::Create (
     const std::string& product
-) const {
+) {
     if (product == kRain) {
         return new StringLogo();
     }
@@ -28,14 +28,14 @@ IStringLogo* StringLogoFactory::Create (
 
 bool StringLogoFactory::Destroy(
     IStringLogo* logo
-) const {
+) {
     if (nullptr != logo) {
         delete logo;
     }
     return true;
 }
 
-const std::vector<std::string>& StringLogoFactory::GetProducts() const {
+const std::vector<std::string> StringLogoFactory::GetProducts() const {
     std::vector<std::string> products {
         kRain
     };
