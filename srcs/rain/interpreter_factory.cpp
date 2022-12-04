@@ -15,22 +15,13 @@
 
 RAIN_START()
 
-IInterpreter* InterpreterFactory::Create(
+std::shared_ptr<IInterpreter> InterpreterFactory::Create(
     const std::string& product
 ) {
     if(product == kRain) {
-        return nullptr;
+        return std::shared_ptr<IInterpreter>(nullptr);
     }
     return nullptr;
-}
-
-bool InterpreterFactory::Destroy(
-    IInterpreter* version
-) {
-    if (nullptr != version) {
-        delete version;
-    }
-    return true;
 }
 
 const std::vector<std::string> InterpreterFactory::GetProducts() const {

@@ -17,22 +17,13 @@
 
 RAIN_START()
 
-IVersion* VersionFactory::Create(
+std::shared_ptr<IVersion> VersionFactory::Create(
     const std::string& product
 ) {
     if(product == kCurrent) {
-        return new CurrentVersion();
+        return std::shared_ptr<IVersion>(new CurrentVersion());
     }
     return nullptr;
-}
-
-bool VersionFactory::Destroy(
-    IVersion* version
-) {
-    if (nullptr != version) {
-        delete version;
-    }
-    return true;
 }
 
 const std::vector<std::string> VersionFactory::GetProducts() const {

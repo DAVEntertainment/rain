@@ -14,6 +14,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <memory>
 #include "rain/rain_macros.h"
 #include "rain/rain_api.h"
 #include "rain/i_interpreter.h"
@@ -25,14 +26,8 @@ class RAIN_API InterpreterFactory final {
     //!
     //! Create interpreter
     //!
-    IInterpreter* Create(
+    std::shared_ptr<IInterpreter> Create(
         const std::string& product
-    );
-    //!
-    //! Destroy interpreter
-    //!
-    bool Destroy (
-        IInterpreter* logo
     );
     //!
     //! Get product list
