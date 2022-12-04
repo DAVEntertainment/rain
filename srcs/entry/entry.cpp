@@ -21,6 +21,7 @@ int main(int nargs, char* args[]) {
         rain::StringLogoFactory factory;
         auto logo = factory.Create(factory.kRain);
         std::cout << logo->ToString() << std::endl;
+        delete logo;
     } else if (2 == nargs) {
         std::string file(args[1]);
         std::cout << "using " << file << std::endl;
@@ -39,6 +40,7 @@ int main(int nargs, char* args[]) {
                 rain::VersionFactory factory;
                 auto v = factory.Create(factory.kCurrent);
                 std::cout << v->GetFullVersion() << std::endl;
+                delete v;
             }
         }
     }

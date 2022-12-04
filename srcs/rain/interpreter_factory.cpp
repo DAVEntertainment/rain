@@ -15,11 +15,11 @@
 
 RAIN_START()
 
-std::shared_ptr<IInterpreter> InterpreterFactory::Create(
+IInterpreter* InterpreterFactory::Create(
     const std::string& product
 ) {
     if(product == kRain) {
-        return std::shared_ptr<IInterpreter>(nullptr);
+        return nullptr;
     }
     return nullptr;
 }

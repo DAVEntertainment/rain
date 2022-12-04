@@ -17,11 +17,11 @@
 
 RAIN_START()
 
-std::shared_ptr<IStringLogo> StringLogoFactory::Create (
+IStringLogo* StringLogoFactory::Create (
     const std::string& product
 ) {
     if (product == kRain) {
-        return std::shared_ptr<IStringLogo>(new StringLogo());
+        return new StringLogo();
     }
     return nullptr;
 }

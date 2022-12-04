@@ -17,11 +17,11 @@
 
 RAIN_START()
 
-std::shared_ptr<IVersion> VersionFactory::Create(
+IVersion* VersionFactory::Create(
     const std::string& product
 ) {
     if(product == kCurrent) {
-        return std::shared_ptr<IVersion>(new CurrentVersion());
+        return new CurrentVersion();
     }
     return nullptr;
 }

@@ -14,7 +14,6 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <memory>
 #include "rain/rain_api.h"
 #include "rain/rain_macros.h"
 #include "rain/i_string_logo.h"
@@ -26,7 +25,7 @@ class RAIN_API StringLogoFactory final {
     //!
     //! Create string logo
     //!
-    std::shared_ptr<IStringLogo> Create (
+    IStringLogo* Create (
         const std::string& product
     );
     //!

@@ -14,7 +14,6 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <memory>
 #include "rain/rain_api.h"
 #include "rain/rain_macros.h"
 #include "rain/i_version.h"
@@ -26,7 +25,7 @@ class RAIN_API VersionFactory final {
     //!
     //! Create version
     //!
-    std::shared_ptr<IVersion> Create(
+    IVersion* Create(
         const std::string& product
     );
     //!
