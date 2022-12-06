@@ -13,14 +13,26 @@
  *****************************************************************************/
 #pragma once
 #include "rain/rain_macros.h"
+#include "rain/i_interpreter.h"
 
 RAIN_START()
 
-class Interpreter final {
+class Interpreter:
+    public IInterpreter
+{
  public:
-    Interpreter();
-    ~Interpreter();
-    void Interpret();
+    //!
+    //! Constructor
+    //!
+    explicit Interpreter();
+    //!
+    //! Desctructor
+    //!
+    virtual ~Interpreter();
+    //!
+    //! Parse code interface
+    //!
+    virtual void Parse(const std::string& code) override;
 };
 
 RAIN_STOP()

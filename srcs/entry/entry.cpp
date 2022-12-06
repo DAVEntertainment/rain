@@ -32,11 +32,15 @@ int main(int nargs, char* args[]) {
             std::stringstream ss;
             ss << istm.rdbuf();
             std::cout << ss.str() << std::endl;
+            rain::InterpreterFactory factory;
+            auto interpreter = factory.Create(factory.kRain);
+            interpreter->Parse(ss.str());
+            delete interpreter;
         }
     } else {
-        std::string version_tag("--version");
+        std::string versionTag("--version");
         for (int i = 0; i < nargs; ++i) {
-            if (0 == version_tag.compare(args[i])) {
+            if (0 == versionTag.compare(args[i])) {
                 rain::VersionFactory factory;
                 auto v = factory.Create(factory.kCurrent);
                 std::cout << v->GetFullVersion() << std::endl;

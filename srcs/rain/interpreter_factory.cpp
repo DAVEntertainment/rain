@@ -12,6 +12,7 @@
  *  2022-12-01      Wu Wei          Created
  *****************************************************************************/
 #include "rain/interpreter_factory.h"
+#include "rain/core/interpreter.h"
 
 RAIN_START()
 
@@ -19,7 +20,7 @@ IInterpreter* InterpreterFactory::Create(
     const std::string& product
 ) {
     if(product == kRain) {
-        return nullptr;
+        return new Interpreter();
     }
     return nullptr;
 }

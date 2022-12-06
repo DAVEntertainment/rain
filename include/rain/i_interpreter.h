@@ -17,9 +17,13 @@
 
 RAIN_START()
 
-class IInterpreter {
+class IInterpreter
+{
  public:
-    virtual IRObject* Parse(std::string) = 0;
+    //!
+    //! Parse code interface
+    //!
+    virtual void Parse(const std::string& code) = 0;
 };
 
 RAIN_STOP()

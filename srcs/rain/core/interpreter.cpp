@@ -20,7 +20,7 @@ Interpreter::Interpreter() {}
 
 Interpreter::~Interpreter() {}
 
-void Interpreter::Interpret() {
+void Interpreter::Parse(const std::string& code) {
     ::std::cout << "joker" << ::std::endl;
 }
 
