@@ -21,9 +21,7 @@ RAIN_START()
 //!
 //! Version class, contains Rain Version Info
 //!
-class Version:
-   public IVersion
-{
+class Version: public IVersion {
  private:
     uint32_t m_major{0};
     uint32_t m_minor{0};
@@ -52,31 +50,31 @@ class Version:
     //!
     //! Get full version
     //!
-    virtual std::string GetFullVersion() const noexcept override;
+    std::string GetFullVersion() const noexcept override;
     //!
     //! Get major version
     //!
-    virtual uint32_t GetMajor() const noexcept override;
+    uint32_t GetMajor() const noexcept override;
     //!
     //! Get minor version
     //!
-    virtual uint32_t GetMinor() const noexcept override;
+    uint32_t GetMinor() const noexcept override;
     //!
     //! Get patch version
     //!
-    virtual uint32_t GetPatch() const noexcept override;
+    uint32_t GetPatch() const noexcept override;
     //!
     //! Get build version
     //!
-    virtual uint64_t GetBuild() const noexcept override;
+    uint64_t GetBuild() const noexcept override;
     //!
     //! Get tag
     //!
-    virtual const std::string& GetTag() const noexcept override;
+    const std::string& GetTag() const noexcept override;
     //!
     //! Get hash
     //!
-    virtual const std::string& GetHash() const noexcept override;
+    const std::string& GetHash() const noexcept override;
 
  public:
     // TODO(Wu Wei): support version compare

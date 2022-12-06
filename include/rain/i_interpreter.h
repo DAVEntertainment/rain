@@ -17,8 +17,7 @@
 
 RAIN_START()
 
-class IInterpreter
-{
+class IInterpreter {
  public:
     //!
     //! Parse code interface

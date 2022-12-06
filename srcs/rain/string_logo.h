@@ -19,8 +19,7 @@
 RAIN_START()
 
 class StringLogo final:
-    public IStringLogo
-{
+    public IStringLogo {
  public:
     std::string ToString() const override;
 };

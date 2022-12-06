@@ -12,19 +12,18 @@
  *  2022-10-27      Wu Wei          Created
  *****************************************************************************/
 #pragma once
+#include <string>
 #include "rain/rain_macros.h"
 #include "rain/i_interpreter.h"
 
 RAIN_START()
 
-class Interpreter:
-    public IInterpreter
-{
+class Interpreter: public IInterpreter {
  public:
     //!
     //! Constructor
     //!
-    explicit Interpreter();
+    Interpreter();
     //!
     //! Desctructor
     //!
@@ -32,7 +31,7 @@ class Interpreter:
     //!
     //! Parse code interface
     //!
-    virtual void Parse(const std::string& code) override;
+    void Parse(const std::string& code) override;
 };
 
 RAIN_STOP()

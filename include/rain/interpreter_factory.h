@@ -26,8 +26,7 @@ class RAIN_API InterpreterFactory final {
     //! Create interpreter
     //!
     IInterpreter* Create(
-        const std::string& product
-    );
+        const std::string& product);
     //!
     //! Get product list
     //!

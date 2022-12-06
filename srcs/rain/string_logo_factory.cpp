@@ -17,7 +17,7 @@
 
 RAIN_START()
 
-IStringLogo* StringLogoFactory::Create (
+IStringLogo* StringLogoFactory::Create(
     const std::string& product
 ) {
     if (product == kRain) {

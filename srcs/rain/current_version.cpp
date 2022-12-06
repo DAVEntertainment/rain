@@ -18,17 +18,14 @@
 
 RAIN_START()
 
-CurrentVersion::CurrentVersion():
-   Version(
+CurrentVersion::CurrentVersion(): Version(
       RAIN_VERSION_MAJOR,
       RAIN_VERSION_MINOR,
       RAIN_VERSION_PATCH,
       RAIN_VERSION_BUILD,
       RAIN_VERSION_TAG,
       RAIN_VERSION_HASH
-   )
-{
-
+) {
 }
 
 RAIN_STOP()

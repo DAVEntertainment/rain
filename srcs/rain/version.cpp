@@ -17,7 +17,7 @@
 
 RAIN_START()
 
-Version::Version (
+Version::Version(
     uint32_t major,
     uint32_t minor,
     uint32_t patch,
@@ -33,8 +33,7 @@ Version::Version (
     m_hash(hash) {
 }
 
-Version::~Version () {
-
+Version::~Version() {
 }
 
 std::string Version::GetFullVersion() const noexcept {

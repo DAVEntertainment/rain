@@ -18,9 +18,7 @@
 
 RAIN_START()
 
-class IRObject:
-    public IStringConvertible
-{
+class IRObject: public IStringConvertible {
  public:
     //!
     //! Get type name of RObject
@@ -34,15 +32,13 @@ class IRObject:
     //! Get attribute
     //!
     virtual IRObject* GetAttribute(
-        const std::string name
-    ) const = 0;
+        const std::string name) const = 0;
     //!
     //! Set attribute
     //!
     virtual void SetAttribute(
         const std::string name,
-        IRObject* value
-    ) const = 0;
+        IRObject* value) const = 0;
     //!
     //! Is RObject callable ?
     //!

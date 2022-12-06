@@ -26,8 +26,7 @@ class RAIN_API VersionFactory final {
     //! Create version
     //!
     IVersion* Create(
-        const std::string& product
-    );
+        const std::string& product);
     //!
     //! Get product list
     //!

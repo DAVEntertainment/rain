@@ -16,9 +16,7 @@
 
 RAIN_START()
 
-class IStringLogo:
-    public IStringConvertible
-{
+class IStringLogo: public IStringConvertible {
 };
 
 RAIN_STOP()

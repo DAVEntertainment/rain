@@ -20,7 +20,7 @@ RAIN_START()
 IVersion* VersionFactory::Create(
     const std::string& product
 ) {
-    if(product == kCurrent) {
+    if (product == kCurrent) {
         return new CurrentVersion();
     }
     return nullptr;

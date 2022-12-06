@@ -19,7 +19,7 @@ RAIN_START()
 IInterpreter* InterpreterFactory::Create(
     const std::string& product
 ) {
-    if(product == kRain) {
+    if (product == kRain) {
         return new Interpreter();
     }
     return nullptr;

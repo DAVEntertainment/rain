@@ -18,8 +18,7 @@
 RAIN_START()
 
 class CurrentVersion final:
-   public Version
-{
+       public Version {
  public:
     explicit CurrentVersion();
 };

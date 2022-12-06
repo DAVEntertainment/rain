@@ -25,9 +25,8 @@ class RAIN_API StringLogoFactory final {
     //!
     //! Create string logo
     //!
-    IStringLogo* Create (
-        const std::string& product
-    );
+    IStringLogo* Create(
+        const std::string& product);
     //!
     //! Get product list
     //!
