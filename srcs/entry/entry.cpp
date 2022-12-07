@@ -31,10 +31,12 @@ int main(int nargs, char* args[]) {
         } else {
             std::stringstream ss;
             ss << istm.rdbuf();
-            std::cout << ss.str() << std::endl;
+            istm.close();
+            std::string content = ss.str();
+            std::cout << content << std::endl;
             rain::InterpreterFactory factory;
             auto interpreter = factory.Create(factory.kRain);
-            interpreter->Parse(ss.str());
+            interpreter->Parse(content);
             delete interpreter;
         }
     } else {
