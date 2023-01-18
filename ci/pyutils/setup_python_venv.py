@@ -14,13 +14,7 @@ class WritePathFailed(Exception):
     Write virtual environment path(.pth) file failed
     """
 
-def generate_path():
-    """
-    generate paths need to set for virtual environment
-    """
-    return abspath(joinpath(dirname(__file__), '..', '..'))
-
-def get_path_file_path(env_root, path_file_name = 'rain.pth'):
+def get_path_file_path(env_root, path_file_name):
     """
     get path file path form given environment root
     """
@@ -33,14 +27,14 @@ def get_path_file_path(env_root, path_file_name = 'rain.pth'):
         raise WritePathFailed(f"system \"{system()}\" not supported")
     return abspath(joinpath(site_package, path_file_name))
 
-def write_path_file(env_root, paths = None):
+def write_path_file(env_root, path_file_name, paths = None):
     """
     write .path file for a virtual env
     """
     if paths is None:
         paths = []
 
-    path_file_path = get_path_file_path(env_root)
+    path_file_path = get_path_file_path(env_root, path_file_name)
     if existspath(path_file_path):
         with open(path_file_path, mode = 'r', encoding = 'utf-8') as stream:
             loaded = stream.read()
@@ -64,8 +58,11 @@ def main(args):
     """
     entry for setup venv (.pth)
     """
+    paths = [
+        abspath(joinpath(dirname(__file__), '..', '..'))
+    ]
     for env_root in args:
-        write_path_file(env_root, [generate_path()])
+        write_path_file(env_root, 'rain.pth', paths)
 
 
 if '__main__' == __name__:
