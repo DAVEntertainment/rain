@@ -6,7 +6,12 @@ import shlex
 from subprocess import Popen, PIPE
 from platform import system
 
-def run_cmd(cmd, **kwargs):
+
+def __black_hole(*args, **kwars):
+    pass
+
+
+def run_cmd(cmd, print_func = print, **kwargs):
     """
     run cmd with log
 
@@ -16,16 +21,18 @@ def run_cmd(cmd, **kwargs):
     params:
         cmd         command to execute
     """
-    print(cmd)
+    if print_func is None:
+        print_func = __black_hole
+    print_func(cmd)
     with Popen(
         cmd if system() == "Windows" else shlex.split(cmd),
         **kwargs
     ) as proc:
         proc.communicate()
-        print(f"return code {proc.returncode}")
+        print_func(f"return {proc.returncode}")
         return proc.returncode
 
-def run_cmd_with_log(cmd, **kwargs):
+def run_cmd_with_log(cmd, print_func = print, **kwargs):
     """
     run cmd with log
 
@@ -35,7 +42,9 @@ def run_cmd_with_log(cmd, **kwargs):
     params:
         cmd         command to execute
     """
-    print(cmd)
+    if print_func is None:
+        print_func = __black_hole
+    print_func(cmd)
     with Popen(
         cmd if system() == "Windows" else shlex.split(cmd),
         stdout = PIPE, stderr = PIPE,
@@ -43,5 +52,7 @@ def run_cmd_with_log(cmd, **kwargs):
         **kwargs
     ) as proc:
         stdout, stderr = proc.communicate()
-        print(f"return code {proc.returncode}")
+        print_func(f"return {proc.returncode}")
+        print_func(f"stdout {stdout}")
+        print_func(f"stderr {stderr}")
         return proc.returncode, stdout, stderr
