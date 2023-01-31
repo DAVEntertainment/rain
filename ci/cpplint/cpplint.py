@@ -5,9 +5,9 @@ import sys
 from os.path import join as joinpath
 from os.path import abspath, dirname
 from types import SimpleNamespace
-from ci.pyutils.path_utils import glob_files
-from ci.pyutils.lint_utils import split_modules
-from ci.pyutils.shell_utils import run_cmd
+from rain.path_utils import glob_files
+from rain.lint_utils import split_modules
+from rain.shell_utils import run_cmd
 
 
 class LintFailed(Exception):

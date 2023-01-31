@@ -9,10 +9,10 @@ from os.path import abspath, dirname
 from os import makedirs
 from shutil import rmtree
 from types import SimpleNamespace
-from ci.pyutils.builder import Step, Builder
-from ci.pyutils import doxyfile_utils
-from ci.pyutils.path_utils import glob_files
-from ci.pyutils.shell_utils import run_cmd
+from rain.builder import Step, Builder
+from rain import doxyfile_utils
+from rain.path_utils import glob_files
+from rain.shell_utils import run_cmd
 
 
 class BuildFailed(Exception):

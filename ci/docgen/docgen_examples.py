@@ -3,7 +3,7 @@ docgen examples
 """
 from os.path import join as joinpath
 from os.path import abspath, dirname
-from ci.pyutils import doxyfile_utils
+from rain import doxyfile_utils
 
 #####################################################################################
 # Examples

@@ -59,7 +59,7 @@ def main(args):
     entry for setup venv (.pth)
     """
     paths = [
-        abspath(joinpath(dirname(__file__), '..', '..'))
+        abspath(joinpath(dirname(__file__), '..'))
     ]
     for env_root in args:
         write_path_file(env_root, 'rain.pth', paths)
