@@ -156,7 +156,7 @@ def default_builder_config():
     config.docgen_root = abspath(dirname(__file__))
     config.repo_root = abspath(joinpath(config.docgen_root, '..', '..'))
     config.include_root = abspath(joinpath(config.repo_root, 'include'))
-    config.srcs_root = abspath(joinpath(config.repo_root, 'srcs'))
+    config.srcs_root = abspath(joinpath(config.repo_root, 'src'))
     config.build_dir = joinpath(config.docgen_root, '.build')
     #   doxygen config
     config.doxyfile_in = joinpath(config.docgen_root, 'doxyfile.in')

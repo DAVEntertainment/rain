@@ -1,6 +1,6 @@
 # set include dir
 get_filename_component(RAIN_REPO_DIR ${CMAKE_CURRENT_LIST_DIR}/../../.. ABSOLUTE)
-set(RAIN_SRCS_DIR ${RAIN_REPO_DIR}/srcs)
+set(RAIN_SRCS_DIR ${RAIN_REPO_DIR}/src)
 set(RAIN_PUBLIC_HEADER_DIR ${RAIN_REPO_DIR}/include)
 
 # set sources

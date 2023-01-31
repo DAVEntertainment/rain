@@ -2,7 +2,7 @@ set SOURCE_DIR=%~dp0
 set BUILD_DIR=%SOURCE_DIR%\.build
 set INSTALL_DIR=%BUILD_DIR%\.dist
 
-set RAIN_SOURCE_DIR=%SOURCE_DIR%\..\..\srcs\
+set RAIN_SOURCE_DIR=%SOURCE_DIR%\..\..\src\
 set RAIN_BUILD_DIR=%BUILD_DIR%\.build_rain
 
 rmdir /s /q %BUILD_DIR%
