@@ -26,7 +26,29 @@
 *.a
 *.lib
 
+# Python Cache
+__pycache__
+*.pyc
+
 # Executables
 *.exe
 *.out
 *.app
+
+# Build Directories
+.build*
+_build*
+.dist*
+_dist*
+.install*
+_install*
+.vsbuild
+.vscbuild
+.vs
+
+# Help documentation
+*.help
+
+# Install
+bin
+lib
