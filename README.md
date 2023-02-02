@@ -1,8 +1,8 @@
 # rain
 rain is a script language
 
-# TODO
-### Phase 1
+# roadmap
+### hello world: simple lines execution with print function
 - [ ] Basic script parse
 - [ ] Built-in function: print
 - [ ] Value type: str
