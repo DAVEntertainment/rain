@@ -22,5 +22,5 @@ Indices and tables
 Content
 ==================
 
-.. doxygenclass:: rain::Factory
+.. doxygenclass:: InterpreterFactory
     :project: rain

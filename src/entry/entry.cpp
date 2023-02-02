@@ -47,7 +47,8 @@ int main(int nargs, char* args[]) {
         std::string content = ss.str();
         std::cout << content << std::endl;
         rain::InterpreterFactory factory;
-        std::shared_ptr<rain::IInterpreter> interpreter(factory.Create(factory.kRain));
+        std::shared_ptr<rain::IInterpreter> interpreter(
+            factory.Create(factory.kRain));
         interpreter->Parse(content);
     }
     return 0;

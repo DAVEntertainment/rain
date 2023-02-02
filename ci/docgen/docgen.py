@@ -1,8 +1,8 @@
 """
 docgen entry
 """
-from ci.docgen.docgen_builder import default_builder_config
-from ci.docgen.docgen_builder import DocgenBuilder
+from docgen_builder import default_builder_config
+from docgen_builder import DocgenBuilder
 
 
 def main():
